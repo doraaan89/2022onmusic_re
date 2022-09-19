@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onmusic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <script defer src="script/script.js" type="module"></script>
+  <link rel="stylesheet" href="./css/style.min.css">
+</head>
+<body>
+  <div class="body-container">
+    <header id="header">
+      {{ headerText }}
+    </header>
+    <main>
+      <div id="content-container">
+        컨텐츠 영역
+      </div>
+    </main>
+    <footer id="footer">
+      {{ footerText }}
+    </footer>
+    <aside id="rnb">
+      {{ rnbText }}
+    </aside>
+  </div>
+</body>
+</html>

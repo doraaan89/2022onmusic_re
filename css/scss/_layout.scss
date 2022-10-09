@@ -4,11 +4,14 @@
   max-width: $inner;
   margin: 0 auto;
   margin-top: 127px;
-
+  .logo {
+    margin-left: level(6);
+  }
   .header-right {
     flex-basis: 80%;
     margin-left: auto;
     text-align: right;
+    font-size: toRem(22);
     .jpn {
       font-family: $eng;
     }
@@ -22,41 +25,50 @@
     justify-content: space-between;
     margin-top: level(4);
     border-top: 1px solid $bd-color;
-    &.on::after {
-      content: '';
+    text-align: left;
+    .bg-depth2 {
       position: absolute;
-      top: 176px;
+      top: 190px;
       left: 0;
       width: 100%;
       height: 300px;
       background-color: rgba(0, 0, 0, .75);
       z-index: 11;
-
     }
     .depth1 {
-      .name {
-        display: block;
-        padding: level(10) 0;
-        font-family: $eng;
-        font-weight: 700;
-        font-size: toRem(30);
-      }
-    }
-    .depth2 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 12;
-      text-align: left;
-      .link {
-        display: block;
-        margin-top: level(7);
-        font-size: toRem(24);
-        color: #fff;
+      position: relative;
+      flex-basis: 20%;
+      padding: level(10) 0;
+      font-family: $eng;
+      font-weight: 700;
+      font-size: toRem(30);
+      .depth2 {
+        position: absolute;
+        top: 110px;
+        left: 0;
+        z-index: 12;
+        width: 100%;
+        font-weight: 400;
+        text-align: left;
+        .link {
+          display: block;
+          margin-top: level(7);
+          font-size: toRem(24);
+          color: #fff;
+        }
       }
     }
   }
 }
+// .dropdown-enter-active,
+// .dropdown-leave-active {
+//   transition: height 0.5s ease;
+// }
+
+// .dropdown-enter-from,
+// .dropdown-leave-to {
+//   height: 0;
+// }
 
 #footer {
   display: flex;
@@ -83,6 +95,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 356px;
     margin-top: level(13);
     font-size: toRem(22);
     .title {
@@ -90,7 +103,30 @@
     }
     .weekend {
       flex-basis: 100%;
+      margin-top: level(4);
       text-align: right;
+    }
+  }
+}
+
+#floating-banner {
+  position: absolute;
+  top: level(80);
+  right: level(16);
+  .btn-wrap {
+    .btn {
+      display: block;
+      background-color: #fff;
+      border-radius: 50%;
+      & + .btn {
+        margin-top: level(5);
+      }
+      &.top {
+        margin-top: level(5);
+      }
+    }
+    .expand {
+      margin-top: level(5);
     }
   }
 }

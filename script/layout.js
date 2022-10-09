@@ -135,11 +135,19 @@ export const footer = {
   }
 }
 
-export const rnb = {
-  el: '#rnb',
+export const floatingBanner = {
+  el: '#floating-banner',
   data() {
     return {
-      rnbText: 'rnb 영역이다.'
+      isExpand: false,
+    }
+  },
+  methods: {
+    scrollTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth'})
+    },
+    openExpand() {
+      this.isExpand = !this.isExpand;
     }
   }
 }

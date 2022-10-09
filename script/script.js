@@ -1,6 +1,6 @@
-import { header, footer, rnb } from './layout.js'
+import { header, footer, floatingBanner } from './layout.js'
 
 // layout
 new Vue(header);
 new Vue(footer);
-new Vue(rnb);
+new Vue(floatingBanner);

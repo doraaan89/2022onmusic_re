@@ -12,7 +12,28 @@
 <body>
   <div class="body-container">
     <header id="header">
-      {{ headerText }}
+      <h1 class="logo">
+        <a href="">
+          <img src="" alt="main logo">
+        </a>
+      </h1>
+      <div class="header-right">
+        <a href="javascript:void(0)" class="jpn">( JPN )</a>
+        <p class="sign">
+          <a href="javascript:void(0)">로그인</a> /
+          <a href="javascript:void(0)">회원가입</a> 
+        </p>
+        <div id="gnb" :class="{on: isOpenGnb}">
+          <div v-for="(item, i) in gnb" :key="i" class="depth1">
+            <span class="name" @mouseover="openGnb(true)" @mouseleave="openGnb(false)">{{ item.name }}</span>
+            <div v-show="isOpenGnb" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
     <main>
       <div id="content-container">
@@ -20,11 +41,24 @@
       </div>
     </main>
     <footer id="footer">
-      {{ footerText }}
+      <div class="sns">
+        <a v-for="(item, i) in sns" :key="" :href="item.href">{{ item.name }}</a>
+      </div>
+      <h2 class="logo">footerLogo</h2>
+      <div class="info-time">
+        <h3 class="title">
+          운영시간
+        </h3>
+        <p class="weekday">
+          평일 PM 1:00 - PM 10:00
+        </p>
+        <p class="weekend">
+          토요일 PM 1:00 - PM 7:00
+        </p>
+      </div>
     </footer>
     <aside id="rnb">
       {{ rnbText }}
     </aside>
-  </div>
-</body>
+  </div></body>
 </html>

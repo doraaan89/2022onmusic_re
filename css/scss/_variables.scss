@@ -1,0 +1,13 @@
+$inner: 1320px;
+$eng: 'Montserrat';
+$kor: 'Noto Sans KR';
+
+$bd-color: rgba(9, 1, 3, .28);
+
+@function level($level) {
+  @return $level * 4px;
+}
+
+@function toRem($fs) {
+  @return $fs * 0.0625rem;
+}

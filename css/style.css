@@ -1,8 +1,7 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;700&display=swap"); /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+KR:wght@400;700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,6 +21,7 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: "Noto Sans KR";
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -53,6 +53,99 @@ table {
   border-spacing: 0;
 }
 
-header {
-  display: none;
+a {
+  text-decoration: none;
+  color: #111;
+}
+
+#header {
+  position: relative;
+  display: flex;
+  max-width: 1320px;
+  margin: 0 auto;
+  margin-top: 127px;
+}
+#header .header-right {
+  flex-basis: 80%;
+  margin-left: auto;
+  text-align: right;
+}
+#header .header-right .jpn {
+  font-family: "Montserrat";
+}
+#header .header-right .sign {
+  margin-top: 16px;
+}
+#header #gnb {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  border-top: 1px solid rgba(9, 1, 3, 0.28);
+}
+#header #gnb.on::after {
+  content: "";
+  position: absolute;
+  top: 176px;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 11;
+}
+#header #gnb .depth1 .name {
+  display: block;
+  padding: 40px 0;
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 1.875rem;
+}
+#header #gnb .depth2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12;
+  text-align: left;
+}
+#header #gnb .depth2 .link {
+  display: block;
+  margin-top: 28px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+#footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+#footer .sns {
+  flex-basis: 100%;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(9, 1, 3, 0.28);
+  font-size: 1.5rem;
+}
+#footer .sns > a {
+  font-family: "Montserrat";
+}
+#footer .sns > a + a {
+  margin-left: 28px;
+}
+#footer .logo {
+  margin-top: 52px;
+}
+#footer .info-time {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 52px;
+  font-size: 1.375rem;
+}
+#footer .info-time .title {
+  font-weight: 700;
+}
+#footer .info-time .weekend {
+  flex-basis: 100%;
+  text-align: right;
 }

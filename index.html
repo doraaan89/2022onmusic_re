@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>onmusic</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script defer src="script/script.js" type="module"></script>
   <link rel="stylesheet" href="./css/style.min.css">
 </head>
@@ -37,8 +42,127 @@
       </div>
     </header>
     <main>
-      <div id="content-container">
-        컨텐츠 영역
+      <div id="content-container" class="main">
+        <div class="swiper-area main">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./img/pages/main/img_swiper_top1.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="./img/pages/main/img_swiper_top1.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="./img/pages/main/img_swiper_top1.png" alt="">
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <img src="./img/pages/main/icon_twinkle.png" alt="" class="mt60">
+        <p class="slogan mt32">WE MAKE YOUR DREAM ON MUSIC</p>
+        <div class="accordion-area mt60">
+          <details class="accordion">
+            <summary class="accordion-header">INTRO</summary>
+            <div class="accordion-body">
+              <img src="./img/pages/main/img_intro.png" alt="">
+              <a href="javascript:void(0)" class="btn more">
+                <img src="./img/common/btn_more_black.png" alt="">
+              </a>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary class="accordion-header">
+              <img src="./img/pages/main/typo_onair.png" alt="">
+            </summary>
+            <div class="accordion-body onair">
+              <a href="" class="title">
+                <img src="./img/pages/main/typo_youtube.png" alt="">
+              </a>
+              <div class="swiper-area mt24">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="https://img.youtube.com/vi/fni08ynOdlo/mqdefault.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="https://img.youtube.com/vi/Ff-5Of9xyqE/mqdefault.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="https://img.youtube.com/vi/Lb82pVs7cRM/mqdefault.jpg" alt="">
+                  </div>
+                </div>
+                <div class="btn-wrap">
+                  <div class="swiper-button-prev">
+                    <img src="./img/pages/main/icon_prev_youtube.png" alt="">
+                  </div>
+                  <a href="javascript:void(0)">
+                    <img src="./img/pages/main/icon_youtube.png" alt="">
+                  </a>
+                  <div class="swiper-button-next">
+                    <img src="./img/pages/main/icon_next_youtube.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary class="accordion-header">
+              <img src="./img/pages/main/typo_onacademy.png" alt="">
+            </summary>
+            <div class="accordion-body academy">
+              <div class="box-exam">
+                <h4 class="title mt40">
+                  <img src="./img/pages/main/typo_exam.png" alt="">
+                </h4>
+                <p class="subtitle">( 대학 입시 )</p>
+                <div class="img-wrap">
+                  <img src="./img/pages/main/img_exam_uni.png" alt="">
+                </div>
+                <a href="" class="btn more">
+                  <img src="./img/common/btn_more_line.png" alt="">
+                </a>
+              </div>
+              <div class="box-exam">
+                <h4 class="title mt40">
+                  <img src="./img/pages/main/typo_exam.png" alt="">
+                </h4>
+                <p class="subtitle">( 예고 입시 )</p>
+                <div class="img-wrap">
+                  <img src="./img/pages/main/img_exam_high.png" alt="">
+                </div>
+                <a href="" class="btn more">
+                  <img src="./img/common/btn_more_line.png" alt="">
+                </a>
+              </div>
+            </div>
+          </details>
+          <details class="accordion" open>
+            <summary class="accordion-header">
+              <img src="./img/pages/main/typo_onaudition.png" alt="">
+            </summary>
+            <div class="accordion-body audition">
+              <div class="swiper-area">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./img/pages/main/img_swiper_bottom1.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./img/pages/main/img_swiper_bottom2.jpg" alt="">
+                  </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+              <a href="">
+                <img src="./img/pages/main/img_schedule.png" alt="">
+              </a>
+              <a href="">
+                <img src="./img/pages/main/img_passlist.png" alt="">
+              </a>
+            </div>
+          </details>
+
+        </div>
       </div>
     </main>
     <footer id="footer">
@@ -83,5 +207,51 @@
         </a>
       </div>
     </aside>
-  </div></body>
+  </div>
+
+  <script>
+    const swiperMain = new Swiper('.swiper-area.main', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      speed: 500,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      }
+    })
+    const swiperOnair = new Swiper('.onair .swiper-area', {
+      slidesPerView: 3,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      speed: 500,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+    const swiperStar = new Swiper('.audition .swiper-area', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      speed: 500,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+  </script>
+</body>
 </html>

@@ -76,6 +76,7 @@
   justify-content: space-between;
   max-width: $inner;
   margin: 0 auto;
+  margin-top: 200px;
   .sns {
     flex-basis: 100%;
     padding-bottom: level(4);
@@ -110,7 +111,8 @@
 }
 
 #floating-banner {
-  position: absolute;
+  position: fixed;
+  z-index: 99;
   top: level(80);
   right: level(16);
   .btn-wrap {

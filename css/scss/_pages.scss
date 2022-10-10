@@ -1,0 +1,126 @@
+#content-container {
+  margin: 0 auto;
+  &.main {
+    max-width: $inner;
+    .swiper-area.main {
+      .swiper-button-prev,
+      .swiper-button-next,
+      .swiper-pagination {
+        opacity: 0;
+        transition: opacity .3s;
+      }
+      &:hover {
+        .swiper-button-prev,
+        .swiper-button-next,
+        .swiper-pagination {
+          opacity: 1;
+        } 
+      }
+    }
+    .slogan {
+      font-family: $eng;
+      font-size: toRem(40);
+      font-weight: 600;
+    }
+    .accordion-area {
+      border-top: 18px solid #111;
+      border-bottom: 18px solid #111;
+      .accordion {
+        position: relative;
+        .accordion-header {
+          position: relative;
+          border-top: 1px solid $bd-color;
+          border-bottom: 1px solid $bd-color;
+          padding: level(11) level(22);
+          font-family: $eng;
+          font-size: toRem(33);
+          font-weight: 600;
+          &::marker {
+            font-size: 0;
+          }
+        }
+        &[open] {
+          .accordion-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 100%;
+            background-color: #c5ff00;;
+          }
+        }
+        .accordion-body {
+          position: relative;
+          padding: level(6) 0;
+          &.onair {
+            background-image: url(../../img/pages/main/bg_youtube.png);
+            text-align: center;
+            .swiper-area {
+              .swiper-slide img {
+                width: 100%;
+              }
+              .swiper-button-prev,
+              .swiper-button-next {
+                display: block;
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                width: auto;
+                height: auto;
+                margin-top: auto;
+                &::after {
+                  content: none;
+                }
+              }
+              .btn-wrap {
+                display: flex;
+                justify-content: space-between;
+                padding: level(7);
+                padding-bottom: level(1);
+              }
+            }
+          }
+          &.academy {
+            display: flex;
+            justify-content: space-between;
+            .box-exam {
+              background-color: rgba(183, 183, 183, .2);
+              text-align: right;
+              .title {
+                margin-top: 42px;
+                text-align: center;
+              }
+              .subtitle {
+                margin-top: 24px;
+                padding-bottom: 30px;
+                border-bottom: 1px solid $bd-color;
+                font-size: 30px;
+                text-align: center;
+              }
+              .img-wrap {
+                margin: level(5);
+              }
+              .btn.more {
+                display: inline-block;
+                margin-bottom: level(5);
+                padding-right: level(5); 
+              }
+            }
+          }
+          &.audition {
+            display: flex;
+            flex-wrap: wrap;
+            gap: level(6)
+          }
+          > .btn.more {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+          }
+        }
+      }
+    }
+  }
+}

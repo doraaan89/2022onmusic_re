@@ -11,3 +11,13 @@ $bd-color: rgba(9, 1, 3, .28);
 @function toRem($fs) {
   @return $fs * 0.0625rem;
 }
+
+.mt8 {margin-top: level(2);}
+.mt12 {margin-top: level(3);}
+.mt16 {margin-top: level(4);}
+.mt20 {margin-top: level(5);}
+.mt24 {margin-top: level(6);}
+.mt32 {margin-top: level(8);}
+.mt36 {margin-top: level(9);}
+.mt48 {margin-top: level(12);}
+.mt60 {margin-top: level(15);}

@@ -1,7 +1,3 @@
-body {
-  height: 100%;
-}
-
 #content-container {
   margin: 0 auto;
   &.main {
@@ -126,6 +122,48 @@ body {
             right: 20px;
           }
         }
+      }
+    }
+  }
+}
+
+// about-greetings
+#content-container.greetings {
+  .img-wrap {
+    &.inner {
+      margin: 0 auto;
+      max-width: $inner
+
+    }
+    &.bt {
+      border-top: 1px solid $bd-color;
+
+    }
+    &.center {
+      text-align: center;
+    }
+    
+    &.mt100 {
+      margin-top: 100px;
+    }
+
+    &.mt132 {
+      margin-top: 132px;
+    }
+
+    &.part2 {
+      margin-top: 100px;
+      background-color: #000;
+      .title {
+        padding-top: 52px;
+      }
+      .before {
+        margin-bottom: 84px;
+      }
+      .expand {
+        margin: 0 auto;
+        padding-bottom: 100px;
+        transition: height .3s;
       }
     }
   }

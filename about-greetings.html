@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onmusic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="script/script.js" type="module"></script>
+  <link rel="stylesheet" href="./css/style.min.css">
+</head>
+<body>
+  <div class="body-container">
+    <header id="header">
+      <h1 class="logo">
+        <a href="/">
+          <img src="img/common/logo_header.png" alt="main logo">
+        </a>
+      </h1>
+      <div class="header-right">
+        <a href="javascript:void(0)" class="jpn">( JPN )</a>
+        <p class="sign">
+          <a href="javascript:void(0)">로그인</a> /
+          <a href="javascript:void(0)">회원가입</a> 
+        </p>
+        <div id="gnb">
+            <div v-show="isOpenGnb" class="bg-depth2" @mouseover="openGnb(true)" @mouseleave="openGnb(false)"></div>
+          <div v-for="(item, i) in gnb" :key="i" class="depth1" @mouseover="openGnb(true)" @mouseleave="openGnb(false)">
+            {{ item.name }}
+            <div v-show="isOpenGnb" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="content-container" class="greetings">
+        <div class="img-wrap inner bt center">
+          <img src="./img/pages/about/info/img1_greetings.png" alt="" class="mt20">
+        </div>
+        <div class="img-wrap inner center mt132">
+          <img src="./img/pages/about/info/img2_part1.png" alt="">
+        </div>
+        <div class="img-wrap part2">
+          <div class="img-wrap inner">
+            <img src="./img/pages/about/info/img3_strategy.png" alt="" class="title">
+          </div>
+          <div class="img-wrap inner center mt100">
+            <img src="./img/pages/about/info/img3_set1.png" alt="" class="before">
+            <div class="expand">
+              <img src="./img/pages/about/info/img3_set2.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="img-wrap">
+          <img src="./img/pages/about/info/img4_part3.png" alt="">
+        </div>
+        <div class="img-wrap inner">
+          <img src="./img/pages/about/info/img5_part4.png" alt="">
+        </div>
+        <div class="img-wrap inner">
+          <img src="./img/pages/about/info/img6_part5.png" alt="">
+        </div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="sns">
+        <a v-for="(item, i) in sns" :key="" :href="item.href">{{ item.name }}</a>
+      </div>
+      <h2 class="logo">
+        <img src="img/common/logo_footer.png" alt="">
+      </h2>
+      <div class="info-time">
+        <h3 class="title">
+          운영시간
+        </h3>
+        <p class="weekday">
+          평&nbsp;&nbsp;&nbsp;&nbsp;일&nbsp;PM&nbsp;1:00&nbsp;-&nbsp;PM&nbsp;&nbsp;10:00
+        </p>
+        <p class="weekend">
+          토요일&nbsp;PM&nbsp;1:00&nbsp;-&nbsp;PM&nbsp;&nbsp;&nbsp;&nbsp;7:00
+        </p>
+      </div>
+    </footer>
+    <aside id="floating-banner">
+      <div class="btn-wrap">
+        <a href="javascript:void(0)" class="btn open" @click="openExpand">
+          <img src="img/common/btn_open.png" alt="">
+        </a>
+        <transition name="dropdown">
+          <div v-show="isExpand" class="expand">
+            <a href="javascript:void(0)" class="btn consult">
+              <img src="img/common/btn_consult.png" alt="">
+            </a>
+            <a href="javascript:void(0)" class="btn kakao">
+              <img src="img/common/btn_kakao.png" alt="">
+            </a>
+            <a href="javascript:void(0)" class="btn plus">
+              <img src="img/common/btn_plus.png" alt="">
+            </a>
+          </div>
+        </transition>
+        <a href="javascript:void(0)" class="btn top" @click="scrollTop">
+          <img src="img/common/btn_top.png" alt="">
+        </a>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

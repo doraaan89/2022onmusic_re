@@ -64,12 +64,12 @@
         <div class="accordion-area mt60">
           <details class="accordion">
             <summary class="accordion-header">INTRO</summary>
-            <div class="accordion-body">
-              <img src="./img/pages/main/img_intro.png" alt="">
-              <a href="javascript:void(0)" class="btn more">
-                <img src="./img/common/btn_more_black.png" alt="">
-              </a>
-            </div>
+              <div class="accordion-body">
+                <img src="./img/pages/main/img_intro.png" alt="">
+                <a href="javascript:void(0)" class="btn more">
+                  <img src="./img/common/btn_more_black.png" alt="">
+                </a>
+              </div>
           </details>
           <details class="accordion">
             <summary class="accordion-header">
@@ -210,6 +210,29 @@
   </div>
 
   <script>
+    const accordions = document.querySelectorAll('.accordion');
+    function accordionOpen(arr) {
+      arr.forEach((accordion) => {
+        const { top } = accordion.getBoundingClientRect();
+        const windowScrollTop = document.documentElement.scrollTop;
+        if(top < 100 && top > -100) {
+          if(!accordion.open) {
+            const {height, padding} = window.getComputedStyle(accordion.children[1])
+            accordion.children[1].style.height = 0;
+            accordion.children[1].style.padding = 0;
+            setTimeout(() => {
+              accordion.children[1].style.height = height;
+              accordion.children[1].style.padding = padding;
+            }, 10)
+            console.log(height, padding)
+          }
+          accordion.open = true;
+        }
+      })
+    }
+    
+    window.addEventListener('scroll', () => accordionOpen(accordions));
+
     const swiperMain = new Swiper('.swiper-area.main', {
       slidesPerView: 1,
       spaceBetween: 20,

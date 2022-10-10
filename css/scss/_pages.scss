@@ -1,3 +1,7 @@
+body {
+  height: 100%;
+}
+
 #content-container {
   margin: 0 auto;
   &.main {
@@ -53,6 +57,8 @@
         .accordion-body {
           position: relative;
           padding: level(6) 0;
+          overflow: hidden;
+          transition: height .3s;
           &.onair {
             background-image: url(../../img/pages/main/bg_youtube.png);
             text-align: center;

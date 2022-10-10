@@ -247,6 +247,10 @@ img {
   right: 24px;
 }
 
+body {
+  height: 100%;
+}
+
 #content-container {
   margin: 0 auto;
 }
@@ -300,6 +304,8 @@ img {
 #content-container.main .accordion-area .accordion .accordion-body {
   position: relative;
   padding: 24px 0;
+  overflow: hidden;
+  transition: height 0.3s;
 }
 #content-container.main .accordion-area .accordion .accordion-body.onair {
   background-image: url(../../img/pages/main/bg_youtube.png);

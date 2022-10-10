@@ -120,15 +120,15 @@ export const footer = {
       sns: [
         {
           name: '( INSTARGRAM )',
-          href: 'javascript:void(0)'
+          href: 'https://www.instagram.com/onmusic_gb/'
         },
         {
           name: '( FACEBOOK )',
-          href: 'javascript:void(0)'
+          href: 'https://www.facebook.com/OnMusicAcademyGB/'
         },
         {
           name: '( YOUTUBE )',
-          href: 'javascript:void(0)'
+          href: 'https://www.youtube.com/channel/UCNQdigxsnqPrE2VNz6ja7Vw'
         },
       ]
     }
@@ -144,7 +144,7 @@ export const floatingBanner = {
   },
   methods: {
     scrollTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth'})
+      document.documentElement.scrollTo({ top: 0, behavior: 'smooth'})
     },
     openExpand() {
       this.isExpand = !this.isExpand;

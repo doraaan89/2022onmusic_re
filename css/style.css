@@ -400,3 +400,8 @@ img {
   padding-bottom: 100px;
   transition: height 0.3s;
 }
+
+#content-container.facility {
+  margin: 0 auto;
+  max-width: 1320px;
+}

@@ -173,4 +173,34 @@
 #content-container.facility {
   margin: 0 auto;
   max-width: $inner;
+  .facility-wrap {
+    padding: 48px 0;
+    background-color: #000;
+    text-align: center;
+    .swiper-area.main {
+      .swiper-button-prev,
+      .swiper-button-next {
+        color: #ceff00;
+      }
+      .swiper-button-prev {
+        left: 44px;
+      }
+      .swiper-button-next {
+        right: 44px;
+      }
+    }
+    .thumbnail-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 80px;
+      img {
+        width: calc((100% - 72px) / 4);
+      }
+    }
+    .logo-bottom {
+      width: 200px;
+      margin-top: 44px;
+    }
+  }
 }

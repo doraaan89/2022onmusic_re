@@ -44,10 +44,110 @@
     <main>
       <div id="content-container" class="facility">
         <div class="facility-wrap">
-          <img src="./img/pages/about/facility/bg_facility.png" alt="">
-
+          <img src="./img/pages/about/facility/typo_title.png" alt="" class="title">
+          <div class="swiper-area main mt48">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/1.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/2.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/3.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/4.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/5.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/6.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/7.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/8.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/9.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/10.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/11.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/12.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/13.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/14.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/15.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/16.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/17.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="./img/pages/about/facility/18.jpg" alt="">
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+            <div class="thumbnail-area">
+              <img src="./img/pages/about/facility/1.jpg" alt="">
+              <img src="./img/pages/about/facility/2.jpg" alt="">
+              <img src="./img/pages/about/facility/3.jpg" alt="">
+              <img src="./img/pages/about/facility/4.jpg" alt="">
+              <img src="./img/pages/about/facility/5.jpg" alt="">
+              <img src="./img/pages/about/facility/6.jpg" alt="">
+              <img src="./img/pages/about/facility/7.jpg" alt="">
+              <img src="./img/pages/about/facility/8.jpg" alt="">
+              <img src="./img/pages/about/facility/9.jpg" alt="">
+              <img src="./img/pages/about/facility/10.jpg" alt="">
+              <img src="./img/pages/about/facility/11.jpg" alt="">
+              <img src="./img/pages/about/facility/12.jpg" alt="">
+              <img src="./img/pages/about/facility/13.jpg" alt="">
+              <img src="./img/pages/about/facility/14.jpg" alt="">
+              <img src="./img/pages/about/facility/15.jpg" alt="">
+              <img src="./img/pages/about/facility/16.jpg" alt="">
+              <img src="./img/pages/about/facility/17.jpg" alt="">
+              <img src="./img/pages/about/facility/18.jpg" alt="">
+            </div>
+          <img src="./img/pages/about/facility/logo_facility.png" alt="" class="logo-bottom">
         </div>
-      </div> 
+      </div>
+
+      <script>
+        const swiperFacility = new Swiper('.facility .swiper-area.main', {
+          slidesPerView: 1,
+          autoplay: {
+            delay: 3000,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        })
+
+        const thumbnailWrap = document.querySelector('.thumbnail-area');
+        const thumbnails = thumbnailWrap.querySelectorAll('img');
+
+        thumbnails.forEach((thumbnail, idx) => {
+          thumbnail.addEventListener('click', () => swiperFacility.slideTo(idx))
+        })
+      </script>
     </main>
     <footer id="footer">
       <div class="sns">

@@ -66,9 +66,6 @@
             <summary class="accordion-header">INTRO</summary>
               <div class="accordion-body">
                 <img src="./img/pages/main/img_intro.png" alt="">
-                <a href="javascript:void(0)" class="btn more">
-                  <img src="./img/common/btn_more_black.png" alt="">
-                </a>
               </div>
           </details>
           <details class="accordion">
@@ -76,28 +73,28 @@
               <img src="./img/pages/main/typo_onair.png" alt="">
             </summary>
             <div class="accordion-body onair">
+              <div class="bg-onair">
+                <img src="./img/pages/main/bg_youtube.png" alt="">
+              </div>
               <a href="" class="title">
                 <img src="./img/pages/main/typo_youtube.png" alt="">
               </a>
               <div class="swiper-area mt24">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <img src="https://img.youtube.com/vi/fni08ynOdlo/mqdefault.jpg" alt="">
+                    <img src="https://img.youtube.com/vi/_2rnliYMS9E/mqdefault.jpg" alt="">
                   </div>
                   <div class="swiper-slide">
-                    <img src="https://img.youtube.com/vi/Ff-5Of9xyqE/mqdefault.jpg" alt="">
+                    <img src="https://img.youtube.com/vi/l6bdHQSwCuo/mqdefault.jpg" alt="">
                   </div>
                   <div class="swiper-slide">
-                    <img src="https://img.youtube.com/vi/Lb82pVs7cRM/mqdefault.jpg" alt="">
+                    <img src="https://img.youtube.com/vi/FF94qcoVI6w/mqdefault.jpg" alt="">
                   </div>
                 </div>
                 <div class="btn-wrap">
                   <div class="swiper-button-prev">
                     <img src="./img/pages/main/icon_prev_youtube.png" alt="">
                   </div>
-                  <a href="javascript:void(0)">
-                    <img src="./img/pages/main/icon_youtube.png" alt="">
-                  </a>
                   <div class="swiper-button-next">
                     <img src="./img/pages/main/icon_next_youtube.png" alt="">
                   </div>
@@ -118,9 +115,6 @@
                 <div class="img-wrap">
                   <img src="./img/pages/main/img_exam_uni.png" alt="">
                 </div>
-                <a href="" class="btn more">
-                  <img src="./img/common/btn_more_line.png" alt="">
-                </a>
               </div>
               <div class="box-exam">
                 <h4 class="title mt40">
@@ -130,9 +124,6 @@
                 <div class="img-wrap">
                   <img src="./img/pages/main/img_exam_high.png" alt="">
                 </div>
-                <a href="" class="btn more">
-                  <img src="./img/common/btn_more_line.png" alt="">
-                </a>
               </div>
             </div>
           </details>
@@ -144,7 +135,7 @@
               <div class="swiper-area">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <img src="./img/pages/main/img_swiper_bottom1.jpg" alt="">
+                    <img src="./img/pages/main/img_swiper_bottom1.png" alt="">
                   </div>
                   <div class="swiper-slide">
                     <img src="./img/pages/main/img_swiper_bottom2.jpg" alt="">
@@ -154,14 +145,13 @@
                 <div class="swiper-button-next"></div>
               </div>
               <a href="">
-                <img src="./img/pages/main/img_schedule.png" alt="">
-              </a>
-              <a href="">
-                <img src="./img/pages/main/img_passlist.png" alt="">
+                <img src="./img/pages/main/img_audition.png" alt="">
               </a>
             </div>
           </details>
-
+        </div>
+        <div class="popup-youtube">
+          <iframe width="1280" height="720" src="https://www.youtube.com/embed/_2rnliYMS9E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </main>
@@ -233,6 +223,7 @@
     
     window.addEventListener('scroll', () => accordionOpen(accordions));
 
+    
     const swiperMain = new Swiper('.swiper-area.main', {
       slidesPerView: 1,
       spaceBetween: 20,
@@ -249,6 +240,7 @@
         el: '.swiper-pagination',
       }
     })
+    
     const swiperOnair = new Swiper('.onair .swiper-area', {
       slidesPerView: 3,
       spaceBetween: 20,
@@ -262,6 +254,29 @@
         prevEl: '.swiper-button-prev',
       },
     })
+
+    const popup = document.querySelector('.popup-youtube')
+    const youtube = popup.querySelector('iframe')
+    swiperOnair.on('click', function(e) {
+      const imgSrc = this.clickedSlide.children[0].src
+      const youtubeID = imgSrc.split('/')[4];
+      
+      youtube.src = `//www.youtube.com/embed/${youtubeID}`
+
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      document.body.style.marginRight = '14px';
+      
+    })
+    popup.addEventListener('click', (e) => {
+      popup.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      document.body.style.marginRight = '0';
+    })    
+
+    const bgOnair = document.querySelector('.bg-onair');
+    bgOnair.style.width = window.innerWidth
+    console.log(window.innerWidth, bgOnair.style.width)
     const swiperStar = new Swiper('.audition .swiper-area', {
       slidesPerView: 1,
       spaceBetween: 20,

@@ -52,12 +52,20 @@
         }
         .accordion-body {
           position: relative;
-          padding: level(6) 0;
           overflow: hidden;
           transition: height .3s;
           &.onair {
-            background-image: url(../../img/pages/main/bg_youtube.png);
             text-align: center;
+            .bg-onair {
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+            }
+            .title {
+              display: block;
+              padding-top: 32px;
+            }
             .swiper-area {
               .swiper-slide img {
                 width: 100%;
@@ -80,14 +88,15 @@
                 display: flex;
                 justify-content: space-between;
                 padding: level(7);
-                padding-bottom: level(1);
+                padding-bottom: level(8);
               }
             }
           }
           &.academy {
             display: flex;
-            justify-content: space-between;
+            gap: 0 level(6);
             .box-exam {
+              width: calc(100% - 24px);
               background-color: rgba(183, 183, 183, .2);
               text-align: right;
               .title {
@@ -103,11 +112,9 @@
               }
               .img-wrap {
                 margin: level(5);
-              }
-              .btn.more {
-                display: inline-block;
-                margin-bottom: level(5);
-                padding-right: level(5); 
+                img {
+                  width: 100%;
+                }
               }
             }
           }
@@ -116,13 +123,20 @@
             flex-wrap: wrap;
             gap: level(6)
           }
-          > .btn.more {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-          }
         }
       }
+    }
+    .popup-youtube {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      background-color:rgba(0, 0, 0, .7)
     }
   }
 }
@@ -201,6 +215,62 @@
     .logo-bottom {
       width: 200px;
       margin-top: 44px;
+    }
+  }
+}
+
+// about-way
+#content-container.way {
+  max-width: $inner;
+  margin: 0 auto;
+  .way-wrap {
+    display: flex;
+    gap: 0 24px;
+    .info-way {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      .marker {
+        width: 55px;
+      }
+      .title {
+        font-size: 32px;
+        font-weight: 700;
+        .eng {
+          display: block;
+          font-family: $eng;
+          font-size: 24px;
+          font-weight: 600;
+        }
+      }
+      .content {
+        font-size: 18px;
+        &.eng {
+          font-family: $eng;
+        }
+      }
+      .bar {
+        width: 200px;
+        height: 8px;
+        background-color: #000;
+      }
+      .icon-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        li {
+          display: flex;
+          align-items: center;
+          img {
+            width: 88px;
+            & + p {
+              margin-left: 24px;
+              font-size: 22px;
+              color: #525252;
+            }
+          }
+        }
+      }
     }
   }
 }

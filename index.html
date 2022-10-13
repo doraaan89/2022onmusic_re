@@ -22,17 +22,33 @@
           <img src="img/common/logo_header.png" alt="main logo">
         </a>
       </h1>
-      <div class="header-right">
+      <a href="javascript:void(0)" class="btn-menu mobile" @click="toggleMenu">
+        <span class="bar"></span>
+      </a>
+      <div class="header-right" :class="{open: isOpenMenu}">
         <a href="javascript:void(0)" class="jpn">( JPN )</a>
         <p class="sign">
           <a href="javascript:void(0)">로그인</a> /
           <a href="javascript:void(0)">회원가입</a> 
         </p>
+        <a href="javascript:void(0)" class="btn-close mobile" @click="toggleMenu">
+          <img src="./img/common/icon_close_menu.png" alt="" class="mt24">
+        </a>
         <div id="gnb">
-            <div v-show="isOpenGnb" class="bg-depth2" @mouseover="openGnb(true)" @mouseleave="openGnb(false)"></div>
+          <div v-show="isOpenGnb" class="bg-depth2" @mouseover="openGnb(true)" @mouseleave="openGnb(false)"></div>
           <div v-for="(item, i) in gnb" :key="i" class="depth1" @mouseover="openGnb(true)" @mouseleave="openGnb(false)">
             {{ item.name }}
             <div v-show="isOpenGnb" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="gnb-mobile" class="mobile">
+          <div v-for="(item, i) in gnb" :key="i" class="depth1" @click.self="openDepth2(i)">
+            {{ item.name }}
+            <div v-show="item.openMobile" class="depth2">
               <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
                 {{ link.name }}
               </a>

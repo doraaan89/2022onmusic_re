@@ -6,6 +6,7 @@ export const header = {
       gnb: [
         {
           name: 'ABOUT',
+          openMobile: false,
           depth2: [
             {
               name: '온뮤직 소개',
@@ -23,6 +24,7 @@ export const header = {
         },
         {
           name: 'TRAINER',
+          openMobile: false,
           depth2: [
             {
               name: '보컬',
@@ -48,6 +50,7 @@ export const header = {
         },
         {
           name: 'CLASS',
+          openMobile: false,
           depth2: [
             {
               name: '입시',
@@ -69,6 +72,7 @@ export const header = {
         },
         {
           name: 'NOTICE',
+          openMobile: false,
           depth2: [
             {
               name: '공지사항',
@@ -86,6 +90,7 @@ export const header = {
         },
         {
           name: 'CONTACT',
+          openMobile: false,
           depth2: [
             {
               name: '컨택트',
@@ -103,12 +108,19 @@ export const header = {
         },
       ],
       isOpenGnb: false,
+      isOpenMenu: false,
     }
   },
   methods: {
     openGnb(bool) {
       console.log(bool)
       this.isOpenGnb = bool;
+    },
+    toggleMenu() {
+      this.isOpenMenu = !this.isOpenMenu
+    },
+    openDepth2(idx) {
+      this.gnb[idx].openMobile = !this.gnb[idx].openMobile
     }
   }
 }

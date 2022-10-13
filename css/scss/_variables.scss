@@ -1,8 +1,23 @@
 $inner: 1320px;
+$inner-mobile: 720px;
 $eng: 'Montserrat';
 $kor: 'Noto Sans KR';
 
 $bd-color: rgba(9, 1, 3, .28);
+
+$breakpoint-desktop: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
 
 @function level($level) {
   @return $level * 4px;

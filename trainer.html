@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onmusic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="script/script.js" type="module"></script>
+  <link rel="stylesheet" href="./css/style.min.css">
+</head>
+<body>
+  <div class="body-container">
+    <header id="header">
+      <h1 class="logo">
+        <a href="/">
+          <img src="img/common/logo_header.png" alt="main logo">
+        </a>
+      </h1>
+      <a href="javascript:void(0)" class="btn-menu mobile" @click="toggleMenu">
+        <span class="bar"></span>
+      </a>
+      <div class="header-right" :class="{open: isOpenMenu}">
+        <a href="javascript:void(0)" class="jpn">( JPN )</a>
+        <p class="sign">
+          <a href="javascript:void(0)">로그인</a> /
+          <a href="javascript:void(0)">회원가입</a> 
+        </p>
+        <a href="javascript:void(0)" class="btn-close mobile" @click="toggleMenu">
+          <img src="./img/common/icon_close_menu.png" alt="" class="mt24">
+        </a>
+        <div id="gnb">
+          <div v-show="isOpenGnb" class="bg-depth2" @mouseover="openGnb(true)" @mouseleave="openGnb(false)"></div>
+          <div v-for="(item, i) in gnb" :key="i" class="depth1" @mouseover="openGnb(true)" @mouseleave="openGnb(false)">
+            {{ item.name }}
+            <div v-show="isOpenGnb" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="gnb-mobile" class="mobile">
+          <div v-for="(item, i) in gnb" :key="i" class="depth1" @click.self="openDepth2(i)">
+            {{ item.name }}
+            <div v-show="item.openMobile" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="content-container" class="trainer">
+        <img src="./img/pages/trainer/type_title.png" alt="">
+        <div id="vocal" class="trainer-container">
+          <h4 class="title">
+            VOCAL
+          </h4>
+          <div class="trainer-wrap">
+            <div class="trainer ceo">
+              <img src="./img/pages/trainer/thumb/11.jpg" alt="">
+              <p class="title-trainer">
+                <strong>CEO</strong> 대표이사
+                <span class="name">양 창 훈</span>
+              </p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/5.jpg" alt="">
+              <p class="name">김 찬 오</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/15.jpg" alt="">
+              <p class="name">정 앙 정</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/17.jpg" alt="">
+              <p class="name">최 민 정</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/13.jpg" alt="">
+              <p class="name">이 하 정</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/14.jpg" alt="">
+              <p class="name">전 승 원</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/1.jpg" alt="">
+              <p class="name">고 리 하</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/7.jpg" alt="">
+              <p class="name">반 예 림</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/8.jpg" alt="">
+              <p class="name">배 진 욱</p>
+            </div>
+          </div>
+        </div>
+        <div id="dance" class="trainer-container">
+          <h4 class="title">
+            DANCE
+          </h4>
+          <div class="trainer-wrap">
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/3.jpg" alt="">
+              <p class="name">김 영 진</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/2.jpg" alt="">
+              <p class="name">김 상 민</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/1.jpg" alt="">
+              <p class="name">고 리 하</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/13.jpg" alt="">
+              <p class="name">이 하 정</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/9.jpg" alt="">
+              <p class="name">소 서 현</p>
+            </div>
+          </div>
+        </div>
+        <div id="midi" class="trainer-container">
+          <h4 class="title">
+            MIDI
+          </h4>
+          <div class="trainer-wrap">
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/6.jpg" alt="">
+              <p class="name">매트루스</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/4.jpg" alt="">
+              <p class="name">김 준 형</p>
+            </div>
+          </div>
+        </div>
+        <div id="rap" class="trainer-container">
+          <h4 class="title">
+            RAP
+          </h4>
+          <div class="trainer-wrap">
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/3.jpg" alt="">
+              <p class="name">김 영 진</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/2.jpg" alt="">
+              <p class="name">김 상 민</p>
+            </div>
+          </div>
+        </div>
+        <div id="piano" class="trainer-container">
+          <h4 class="title">
+            PIANO
+          </h4>
+          <div class="trainer-wrap">
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/10.jpg" alt="">
+              <p class="name">안 소 현</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/12.jpg" alt="">
+              <p class="name">윤 지 민</p>
+            </div>
+          </div>
+        </div>
+        <div id="guitar" class="trainer-container">
+          <h4 class="title">
+            GUITAR
+          </h4>
+          <div class="trainer-wrap">
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/16.jpg" alt="">
+              <p class="name">지 민 우</p>
+            </div>
+            <div class="trainer">
+              <img src="./img/pages/trainer/thumb/4.jpg" alt="">
+              <p class="name">김 준 형</p>
+            </div>
+          </div>
+        </div>
+        <div class="popup-details">
+          <div class="details-wrap">
+            <img src="./img/pages/trainer/profile/원장님.jpg" alt="">
+            <div class="btn-prev">
+              <img src="./img/pages/trainer/btn_prev.png" alt="">
+            </div>
+            <div class="btn-next">
+              <img src="./img/pages/trainer/btn_next.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const trainers = document.querySelectorAll('.trainer-wrap .trainer');
+          const popupDetails = document.querySelector('.popup-details');
+          function openPopup() {
+            popupDetails.style.display = 'flex';
+          }
+
+          trainers.forEach((trainer) => {
+            trainer.addEventListener('click', () => {
+              openPopup()
+            })
+          })
+
+          popupDetails.addEventListener('click', (e) => {
+            if(e.target == popupDetails) {
+              popupDetails.style.display = 'none';
+              console.log(e)
+            }
+          })
+        });
+      </script>
+    </main>
+    <footer id="footer">
+      <div class="sns">
+        <a v-for="(item, i) in sns" :key="" :href="item.href">{{ item.name }}</a>
+      </div>
+      <h2 class="logo">
+        <img src="img/common/logo_footer.png" alt="">
+      </h2>
+      <div class="info-time">
+        <h3 class="title">
+          운영시간
+        </h3>
+        <p class="weekday">
+          평&nbsp;&nbsp;&nbsp;&nbsp;일&nbsp;PM&nbsp;1:00&nbsp;-&nbsp;PM&nbsp;&nbsp;10:00
+        </p>
+        <p class="weekend">
+          토요일&nbsp;PM&nbsp;1:00&nbsp;-&nbsp;PM&nbsp;&nbsp;&nbsp;&nbsp;7:00
+        </p>
+      </div>
+    </footer>
+    <aside id="floating-banner">
+      <div class="btn-wrap">
+        <a href="javascript:void(0)" class="btn open" @click="openExpand">
+          <img src="img/common/btn_open.png" alt="">
+        </a>
+        <transition name="dropdown">
+          <div v-show="isExpand" class="expand">
+            <a href="javascript:void(0)" class="btn consult">
+              <img src="img/common/btn_consult.png" alt="">
+            </a>
+            <a href="javascript:void(0)" class="btn kakao">
+              <img src="img/common/btn_kakao.png" alt="">
+            </a>
+            <a href="javascript:void(0)" class="btn plus">
+              <img src="img/common/btn_plus.png" alt="">
+            </a>
+          </div>
+        </transition>
+        <a href="javascript:void(0)" class="btn top" @click="scrollTop">
+          <img src="img/common/btn_top.png" alt="">
+        </a>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

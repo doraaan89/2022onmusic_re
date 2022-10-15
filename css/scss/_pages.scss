@@ -299,6 +299,7 @@
       .trainer-wrap {
         display: flex;
         flex-wrap: wrap;
+        width: calc(100% - 200px - 136px);
         margin-left: 136px;
         gap: level(7) level(6);
         .trainer {
@@ -357,6 +358,110 @@
         .btn-next {
           right: -24px;
           transform: translate(100%, -50%);
+        }
+      }
+    }
+  }
+
+  // class
+  #content-container.class {
+    .banner-top {
+      text-align: center;
+      background-color: #000;
+    }
+    .btn-wrap.tab-main {
+      display: flex;
+      justify-content: space-between;
+      max-width: $inner;
+      margin: 0 auto;
+      margin-top: level(12);
+      padding: 0 level(8);
+      .btn {
+        width: 250px;
+      }
+    }
+    .tab-body {
+      max-width: $inner;
+      margin: 0 auto;
+      margin-top: level(12);
+      .section {
+        img + .text {
+          font-size: toRem(20);
+          padding-left: level(15);
+        }
+        .content-img {
+          display: block;
+          margin: 0 auto;
+          margin-top: level(11);
+        }
+        .content-text {
+          margin-top: level(10);
+          font-size: 22px;
+          line-height: 1.36;
+        }
+
+        & + .section {
+          margin-top: 44px;
+        }
+
+        &.class {
+          .class-wrap {
+            .btn-wrap.tab-sub {
+              display: flex;
+              justify-content: space-between;
+              margin-top: level(11);
+              a {
+                .on {
+                  display: none;
+                }
+                .off {
+                  display: inline;
+                }
+                &.active {
+                  .on {
+                    display: inline;
+                  }
+                  .off {
+                    display: none;
+                  }
+                }
+              }
+              & + .tab-body {
+                margin-top: level(19);
+                img {
+                  display: none;
+                  &.active {
+                    display: inline;
+                  }
+                }
+              }
+            }
+          }
+        }
+        
+        &.onmusic {
+          margin-top: level(62);
+          border-top: 1px solid $bd-color;
+          padding-top: level(11);
+        }
+      }
+
+      #tab-kids {
+        .section {
+          &.class {
+            border-top: 1px solid $bd-color;
+            padding-top: level(11);
+          }
+          &.onmusic {
+            margin-top: level(11);
+          }
+        }
+      }
+      #tab-audition {
+        .section {
+          &.onmusic {
+            margin-top: level(11);
+          }
         }
       }
     }

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onmusic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="script/script.js" type="module"></script>
+  <link rel="stylesheet" href="./css/style.min.css">
+</head>
+<body>
+  <div class="body-container">
+    <header id="header">
+      <h1 class="logo">
+        <a href="/">
+          <img src="img/common/logo_header.png" alt="main logo">
+        </a>
+      </h1>
+      <a href="javascript:void(0)" class="btn-menu mobile" @click="toggleMenu">
+        <span class="bar"></span>
+      </a>
+      <div class="header-right" :class="{open: isOpenMenu}">
+        <a href="javascript:void(0)" class="jpn">( JPN )</a>
+        <p class="sign">
+          <a href="javascript:void(0)">로그인</a> /
+          <a href="javascript:void(0)">회원가입</a> 
+        </p>
+        <a href="javascript:void(0)" class="btn-close mobile" @click="toggleMenu">
+          <img src="./img/common/icon_close_menu.png" alt="" class="mt24">
+        </a>
+        <div id="gnb">
+          <div v-show="isOpenGnb" class="bg-depth2" @mouseover="openGnb(true)" @mouseleave="openGnb(false)"></div>
+          <div v-for="(item, i) in gnb" :key="i" class="depth1" @mouseover="openGnb(true)" @mouseleave="openGnb(false)">
+            {{ item.name }}
+            <div v-show="isOpenGnb" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="gnb-mobile" class="mobile">
+          <div v-for="(item, i) in gnb" :key="i" class="depth1" @click.self="openDepth2(i)">
+            {{ item.name }}
+            <div v-show="item.openMobile" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="content-container" class="contact">
+      <img src="./img/pages/contact/typo_hello.png" alt="">
+      <p class="text">WE MAKE YOUR DREAM ON MUSIC</p>
+      <div class="contact-wrap">
+        <div class="column">
+          <div class="item">
+            <img src="./img/pages/contact/typo_contact.png" alt="" style="width: 175px; height: 55px;">
+          </div>
+          <a href="javascript:void(0)" class="item">
+            <img src="./img/pages/contact/icon_counseling.png" alt="" style="width: 88px; height: 88px;">
+            <div class="text-wrap">
+              <span class="title">상담 신청</span>
+              <span class="title eng">COUNSELING</span>
+            </div>
+          </a>
+          <a href="https://pf.kakao.com/_hfsyM" class="item">
+            <img src="./img/pages/contact/icon_kakao.png" alt="" style="width: 88px; height: 88px;">
+            <div class="text-wrap">
+              <span class="title">카카오 톡</span>
+              <span class="title eng">KAKAO TALK</span>
+            </div>
+          </a>
+          <a href="javascript:void(0)" class="item">
+            <img src="./img/pages/contact/icon_call.png" alt="" style="width: 88px; height: 88px;">
+            <div class="text-wrap">
+              <span class="title">유선 상담</span>
+              <span class="title eng">02-991-1988</span>
+            </div>
+          </a>
+        </div>
+        <div class="column">
+          <div class="item">
+            <img src="./img/pages/contact/typo_sns.png" alt="">
+          </div>
+          <div class="item">
+            <a href="https://www.youtube.com/channel/UCNQdigxsnqPrE2VNz6ja7Vw" class="item-dbl">
+              <img src="./img/pages/contact/icon_youtube.png" alt="">
+              <div class="text-wrap">
+                <span class="title">유튜브</span>
+                <span class="title eng">YOUTUBE</span>
+              </div>
+            </a>
+            <a href="https://m.facebook.com/OnMusicAcademyGB/" class="item-dbl">
+              <img src="./img/pages/contact/icon_facebook.png" alt="">
+              <div class="text-wrap">
+                <span class="title">페이스북</span>
+                <span class="title eng">FACEBOOK</span>
+              </div>
+            </a>
+          </div>
+          <div class="item">
+            <a href="https://www.instagram.com/onmusic_gb/" class="item-dbl">
+              <img src="./img/pages/contact/icon_insta.png" alt="">
+              <div class="text-wrap">
+                <span class="title">인스타그램 (한국)</span>
+                <span class="title eng">INSTAGRAM_KOR</span>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/onmusic_japan/" class="item-dbl">
+              <img src="./img/pages/contact/icon_insta.png" alt="">
+              <div class="text-wrap">
+                <span class="title">인스타그램 (일본)</span>
+                <span class="title eng">INSTAGRAM_JPN</span>
+              </div>
+            </a>
+          </div>
+          <div class="item">
+            
+          </div>
+        </div>
+      </div>
+      <script>
+        
+      </script>
+    </main>
+    <footer id="footer">
+      <div class="sns">
+        <a v-for="(item, i) in sns" :key="" :href="item.href">{{ item.name }}</a>
+      </div>
+      <h2 class="logo">
+        <img src="img/common/logo_footer.png" alt="">
+      </h2>
+      <div class="info-time">
+        <h3 class="title">
+          운영시간
+        </h3>
+        <p class="weekday">
+          평&nbsp;&nbsp;&nbsp;&nbsp;일&nbsp;PM&nbsp;1:00&nbsp;-&nbsp;PM&nbsp;&nbsp;10:00
+        </p>
+        <p class="weekend">
+          토요일&nbsp;PM&nbsp;1:00&nbsp;-&nbsp;PM&nbsp;&nbsp;&nbsp;&nbsp;7:00
+        </p>
+      </div>
+    </footer>
+    <aside id="floating-banner">
+      <div class="btn-wrap">
+        <a href="javascript:void(0)" class="btn open" @click="openExpand">
+          <img src="img/common/btn_open.png" alt="">
+        </a>
+        <transition name="dropdown">
+          <div v-show="isExpand" class="expand">
+            <a href="javascript:void(0)" class="btn consult">
+              <img src="img/common/btn_consult.png" alt="">
+            </a>
+            <a href="javascript:void(0)" class="btn kakao">
+              <img src="img/common/btn_kakao.png" alt="">
+            </a>
+            <a href="javascript:void(0)" class="btn plus">
+              <img src="img/common/btn_plus.png" alt="">
+            </a>
+          </div>
+        </transition>
+        <a href="javascript:void(0)" class="btn top" @click="scrollTop">
+          <img src="img/common/btn_top.png" alt="">
+        </a>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

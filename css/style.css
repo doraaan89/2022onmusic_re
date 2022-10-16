@@ -209,10 +209,18 @@ img {
     top: 320px;
     right: 64px;
   }
+  #floating-banner .btn-wrap .expand .btn {
+    background-color: #fff;
+  }
   #floating-banner .btn-wrap .btn {
     display: block;
-    background-color: #fff;
+    border: 0;
+    background-color: transparent;
     border-radius: 50%;
+    padding: 0;
+  }
+  #floating-banner .btn-wrap .btn img {
+    display: block;
   }
   #floating-banner .btn-wrap .btn + .btn {
     margin-top: 20px;
@@ -820,6 +828,63 @@ img {
   }
   #content-container.class .tab-body #tab-audition .section.onmusic {
     margin-top: 44px;
+  }
+  #content-container.contact {
+    max-width: 1320px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(9, 1, 3, 0.28);
+    padding-top: 90px;
+  }
+  #content-container.contact .text {
+    margin-top: 40px;
+    font-family: "Montserrat";
+    font-size: 1.375rem;
+  }
+  #content-container.contact .contact-wrap {
+    display: flex;
+    margin-top: 38px;
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
+    padding: 10px 0;
+  }
+  #content-container.contact .contact-wrap .column {
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    width: 50%;
+  }
+  #content-container.contact .contact-wrap .column .item {
+    display: flex;
+    align-items: center;
+    height: 104px;
+    padding: 0 24px;
+  }
+  #content-container.contact .contact-wrap .column .item .text-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  #content-container.contact .contact-wrap .column .item .text-wrap .title {
+    font-size: 1.625rem;
+    font-weight: 700;
+  }
+  #content-container.contact .contact-wrap .column .item .text-wrap .title.eng {
+    margin-top: 16px;
+    font-family: "Montserrat";
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  #content-container.contact .contact-wrap .column .item:not(:first-child) {
+    border-top: 2px solid #000;
+  }
+  #content-container.contact .contact-wrap .column .item .item-dbl {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+  #content-container.contact .contact-wrap .column:first-child {
+    border-right: 2px solid #000;
   }
 }
 @media (max-width: 1023px) {

@@ -120,10 +120,20 @@
     top: level(80);
     right: level(16);
     .btn-wrap {
+      .expand {
+        .btn {
+          background-color: #fff;
+        }
+      }
       .btn {
         display: block;
-        background-color: #fff;
+        border: 0;
+        background-color: transparent;
         border-radius: 50%;
+        padding: 0;
+        img {
+          display: block;
+        }
         & + .btn {
           margin-top: level(5);
         }

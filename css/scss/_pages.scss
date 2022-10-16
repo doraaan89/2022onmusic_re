@@ -525,4 +525,41 @@
       }
     }
   }
+
+  // cooperator
+  #content-container.cooperator {
+    max-width: $inner;
+    margin: 0 auto;
+    border-top: 1px solid $bd-color;
+    padding-top: 90px;
+    .swiper-area {
+      margin-top: level(22);
+      text-align: center;
+    }
+    .thumbnail-area {
+      display: flex;
+      justify-content: space-between;
+      margin-top: level(8);
+      .thumb {
+        position: relative;
+        .cover {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .title {
+          margin-top: level(3);
+          font-family: $eng;
+          font-size: toRem(20);
+          font-weight: 600;
+        }
+        &.select {
+          .cover {
+            display: block;
+          }
+        }
+      }
+    }
+  }
 }

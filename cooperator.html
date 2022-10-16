@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onmusic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="script/script.js" type="module"></script>
+  <link rel="stylesheet" href="./css/style.min.css">
+</head>
+<body>
+  <div class="body-container">
+    <header id="header">
+      <h1 class="logo">
+        <a href="/">
+          <img src="img/common/logo_header.png" alt="main logo">
+        </a>
+      </h1>
+      <a href="javascript:void(0)" class="btn-menu mobile" @click="toggleMenu">
+        <span class="bar"></span>
+      </a>
+      <div class="header-right" :class="{open: isOpenMenu}">
+        <a href="javascript:void(0)" class="jpn">( JPN )</a>
+        <p class="sign">
+          <a href="javascript:void(0)">로그인</a> /
+          <a href="javascript:void(0)">회원가입</a> 
+        </p>
+        <a href="javascript:void(0)" class="btn-close mobile" @click="toggleMenu">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/common/icon_close_menu.png" alt="" class="mt24">
+        </a>
+        <div id="gnb">
+          <div v-show="isOpenGnb" class="bg-depth2" @mouseover="openGnb(true)" @mouseleave="openGnb(false)"></div>
+          <div v-for="(item, i) in gnb" :key="i" class="depth1" @mouseover="openGnb(true)" @mouseleave="openGnb(false)">
+            {{ item.name }}
+            <div v-show="isOpenGnb" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="gnb-mobile" class="mobile">
+          <div v-for="(item, i) in gnb" :key="i" class="depth1" @click.self="openDepth2(i)">
+            {{ item.name }}
+            <div v-show="item.openMobile" class="depth2">
+              <a v-for="(link, i) in item.depth2" :key="" :href="link.href" class="link">
+                {{ link.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="content-container" class="cooperator">
+      <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/typo_title.png" alt="">
+      <div class="swiper-area cooperator">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_alabit_content.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_snack_content.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_tarae_content.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_jumal_content.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_grateful_content.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_openplace_content.png" alt="">
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      <div class="thumbnail-area">
+        <div class="thumb select">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_alabit_thumb.png" alt="">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_alabit_cover.png" alt="" class="cover">
+          <p class="title">A LA BIT</p>
+        </div>
+        <div class="thumb">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_snack_thumb.png" alt="">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_snack_cover.png" alt="" class="cover">
+          <p class="title">SNACK</p>
+        </div>
+        <div class="thumb">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_tarae_thumb.png" alt="">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_tarae_cover.png" alt="" class="cover">
+          <p class="title">TARAE STUDIO</p>
+        </div>
+        <div class="thumb">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_jumal_thumb.png" alt="">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_jumal_cover.png" alt="" class="cover">
+          <p class="title">JUMAL PLAY</p>
+        </div>
+        <div class="thumb">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_grateful_thumb.png" alt="">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_grateful_cover.png" alt="" class="cover">
+          <p class="title">GRATEFUL STUDIO</p>
+        </div>
+        <div class="thumb">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_openplace_thumb.png" alt="">
+          <img src="/img_up/shop_pds/onmusicgb/img2022/pages/cooperator/img_openplace_cover.png" alt="" class="cover">
+          <p class="title">OPEN PLACE</p>
+        </div>
+      </div>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const swiperCooperator = new Swiper('.swiper-area.cooperator', {
+            slidesPerView: 1,
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          })
+
+          const thumbnailWrap = document.querySelector('.thumbnail-area');
+          const thumbnails = thumbnailWrap.querySelectorAll('.thumb');
+          // swiperCooperator.slideChange((e) => {
+          //   console.log(e)
+          // })
+          swiperCooperator.on('slideChange', function (e) {
+            thumbnails.forEach((thumbnail, idx) => {
+              thumbnail.classList.remove('select')
+            })
+            thumbnails[e.activeIndex].classList.add('select')
+          });
+          thumbnails.forEach((thumbnail, idx) => {
+            thumbnail.addEventListener('click', () => {
+              swiperCooperator.slideTo(idx)
+              thumbnails.forEach((thumbnail, idx) => {
+                thumbnail.classList.remove('select')
+              })
+              thumbnail.classList.add('select')
+            })
+          })
+        })
+      </script>
+    </main>
+    <footer id="footer">
+      <div class="sns">
+        <a v-for="(item, i) in sns" :key="" :href="item.href">{{ item.name }}</a>
+      </div>
+      <h2 class="logo">
+        <img src="img/common/logo_footer.png" alt="">
+      </h2>
+      <div class="info-time">
+        <h3 class="title">
+          운영시간
+        </h3>
+        <p class="weekday">
+          평&nbsp;&nbsp;&nbsp;&nbsp;일&nbsp;PM&nbsp;1:00&nbsp;-&nbsp;PM&nbsp;&nbsp;10:00
+        </p>
+        <p class="weekend">
+          토요일&nbsp;PM&nbsp;1:00&nbsp;-&nbsp;PM&nbsp;&nbsp;&nbsp;&nbsp;7:00
+        </p>
+      </div>
+    </footer>
+    <aside id="floating-banner">
+      <div class="btn-wrap">
+        <a href="javascript:void(0)" class="btn open" @click="openExpand">
+          <img src="img/common/btn_open.png" alt="">
+        </a>
+        <transition name="dropdown">
+          <div v-show="isExpand" class="expand">
+            <a href="javascript:void(0)" class="btn consult">
+              <img src="img/common/btn_consult.png" alt="">
+            </a>
+            <a href="javascript:void(0)" class="btn kakao">
+              <img src="img/common/btn_kakao.png" alt="">
+            </a>
+            <a href="javascript:void(0)" class="btn plus">
+              <img src="img/common/btn_plus.png" alt="">
+            </a>
+          </div>
+        </transition>
+        <a href="javascript:void(0)" class="btn top" @click="scrollTop">
+          <img src="img/common/btn_top.png" alt="">
+        </a>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

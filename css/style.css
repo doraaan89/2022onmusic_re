@@ -886,6 +886,39 @@ img {
   #content-container.contact .contact-wrap .column:first-child {
     border-right: 2px solid #000;
   }
+  #content-container.cooperator {
+    max-width: 1320px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(9, 1, 3, 0.28);
+    padding-top: 90px;
+  }
+  #content-container.cooperator .swiper-area {
+    margin-top: 88px;
+    text-align: center;
+  }
+  #content-container.cooperator .thumbnail-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+  }
+  #content-container.cooperator .thumbnail-area .thumb {
+    position: relative;
+  }
+  #content-container.cooperator .thumbnail-area .thumb .cover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #content-container.cooperator .thumbnail-area .thumb .title {
+    margin-top: 12px;
+    font-family: "Montserrat";
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  #content-container.cooperator .thumbnail-area .thumb.select .cover {
+    display: block;
+  }
 }
 @media (max-width: 1023px) {
   #content-container {

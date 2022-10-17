@@ -562,4 +562,84 @@
       }
     }
   }
+
+  // academy-pass
+  .img-guide {
+    max-width: $inner;
+    margin: 0 auto;
+    border-top: 1px solid $bd-color;
+    padding-top: 42px;
+  }
+  #content-container.academy-pass {
+    display: none;
+    max-width: $inner;
+    margin: 0 auto;
+    border-top: 1px solid $bd-color;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      margin-top: level(11);
+    }
+    .star-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: level(5);
+      margin-top: 42px;
+      .item {
+        position: relative;
+        .shadow {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: level(6);
+          background-color: rgba(0, 0, 0, .35);
+          box-sizing: border-box;
+          .name {
+            font-size: toRem(32);
+            color: #ceff00;            
+            strong {
+              font-weight: bold;
+            }
+            &.add {
+              margin-top: 6px;
+            }
+          }
+        }
+      }
+    }
+    .divider-year {
+      margin-top: level(10);
+      border-top: 1px solid $bd-color;
+      border-bottom: 1px solid $bd-color;
+      font-size: toRem(44);
+      padding: level(6) 30px;
+    }
+    .passlist {
+      padding-top: 42px;
+      .title {
+        margin-top: 0;
+      }
+      .list-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: level(6);
+        margin-top: level(8);
+        .list-item {
+          position: relative;
+          .name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: toRem(24);
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+      & + .passlist {
+        padding-top: level(15);
+      }
+    }
+  }
 }

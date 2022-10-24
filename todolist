@@ -1,0 +1,75 @@
+onmusicgb
+a36#1uTs45
+
+안녕하세요! 홈페이지 확인 했습니다
+수정사항과 몇가지 여쭤보고 싶은 사항이 있습니다!
+
+🔴메인 페이지 on air 배경화면
+- 화면 전체영역말고 다른 contents영역과 동일하게 가로 너비 1320으로 하면 가능한가요??
+
+🔴INVU 영상을 아래 링크로 대체할게요!
+- 홈페이지 유튜브 영상
+https://www.youtube.com/watch?v=9OnH_VVzxfc
+메가오디션 (기존 INVU 대체 영상)
+
++추가 영상 (페이지2)
+https://www.youtube.com/watch?v=jNUvY10yds8
+재영 영상
+https://www.youtube.com/watch?v=6cQ1okturNs
+서빈 영상
+https://www.youtube.com/watch?v=XO2VD8xEvHA
+유우카 영상
+- (추가 영상은 따로 썸네일 이미지 첨부를 해야할까요?
+아니면 링크만 있으면 괜찮은걸까요?)
+
+🔴유튜브 영상 클릭했을 때 팝업 처리 맞습니다!
+
+🔴about 온뮤직 소개 페이지
+- Strategy3 이미지( 초록배경+픽토그램 이미지 )가 홈페이지를 축소하면 가운데 정렬이 아닌 왼쪽정렬로 되는데 수정되는 부분일까요??
+-> 해당내용 구현 불가로 재확인 바랍니다.
+
+🔴모바일 메뉴 햄버거 버튼
+- 혹시 psd 말고 수정안 설명 기준으로 작업이 가능한가요?psd 기준으로만 작업이 가능하다면 새로  psd 수정을 해서 보내드려야 하는 부분인지 궁금합니다
+- 모바일 메뉴 open하면 여러 메뉴가 동시에 open이 되는데 한 메뉴만 가능하게 설정이 가능한가요?
+(Ex. About 클릭 -> about 메뉴 open -> 이 상태에서 trainer 클릭 -> about 메뉴 close + trainer 메뉴 open)
+- 메뉴 상단 on music 워드 로고X / 메뉴 배경 full screen 같은 부분은 모바일 버전이 아직 적용이 안된 상태인건지 궁금합니다!
+-> 수정 완료
+
+🔴trainer페이지 수정사항 / 소서현 T, 최민정 T, 매트루스 T -> X 
+협력업체 수정사항 / 에르네 -> X
+-> 수정 완료
+
+🔴trainer 페이지
+좌측 카테고리 타이틀 ( VOCAL / DANCE 등)
+위에 bar 사이즈 200*13으로 통일 가능할까요??
+Vocal,dance 와 midi, rap, piano, guitar 타이틀 위 bar 사이즈가 달라보여서요!
+-> 수정 완료
+
+모바일 메뉴
+
+-로고 영역 360*78
+
+워드 로고 : 좌측 18px 여백 / 상하 30px여백)
+
+우측 X 버튼 : 24*18/우측 18px 여백/상하 30px 여백)
+
+라인 (1px,#ffffff)
+
+
+*Category title = (ex.ABOUT)
+*menu title = (ex.오시는길)
+
+
+-로고영역 <-> category title 사이 여백 22px
+
+Category title <-> category title 여백 22px
+
+Category title <-> menu title  사이 여백 17px
+
+Menu title <-> menu title 여백 12px
+
+
+-하단 로그인/회원가입
+Text : (regular/10px/#ffffff/오른쪽 정렬)
+우측 여백 18px / 상하 여백 14px
+-> 수정 완료

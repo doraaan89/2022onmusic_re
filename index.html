@@ -31,9 +31,12 @@
           <a href="javascript:void(0)">로그인</a> /
           <a href="javascript:void(0)">회원가입</a> 
         </p>
-        <a href="javascript:void(0)" class="btn-close mobile" @click="toggleMenu">
-          <img src="./img/common/icon_close_menu.png" alt="" class="mt24">
-        </a>
+        <div class="header-mobile">
+          <img src="./img/common/logo_gnb.png" alt="">
+          <a href="javascript:void(0)" class="btn-close mobile" @click="toggleMenu">
+            <img src="./img/common/icon_close_menu.png" alt="">
+          </a>
+        </div>
         <div id="gnb">
           <div v-show="isOpenGnb" class="bg-depth2" @mouseover="openGnb(true)" @mouseleave="openGnb(false)"></div>
           <div v-for="(item, i) in gnb" :key="i" class="depth1" @mouseover="openGnb(true)" @mouseleave="openGnb(false)">
@@ -55,6 +58,10 @@
             </div>
           </div>
         </div>
+        <p class="mobile-sign">
+          <a href="javascript:void(0)">로그인</a> /
+          <a href="javascript:void(0)">회원가입</a> 
+        </p>
       </div>
     </header>
     <main>
@@ -88,11 +95,8 @@
             <summary class="accordion-header onair">
               <img src="./img/pages/main/typo_onair.png" alt="">
             </summary>
-            <div class="accordion-body onair">
-              <div class="bg-onair">
-                <img src="./img/pages/main/bg_youtube.png" alt="">
-              </div>
-              <a href="" class="title">
+            <div class="accordion-body onair" style="background-image: url(./img/pages/main/bg_youtube.png);">
+              <a href="https://www.youtube.com/channel/UCNQdigxsnqPrE2VNz6ja7Vw" class="title">
                 <img src="./img/pages/main/typo_youtube.png" alt="">
               </a>
               <div class="swiper-area mt24">
@@ -116,6 +120,9 @@
                   </div>
                 </div>
               </div>
+              <a href="https://www.youtube.com/channel/UCNQdigxsnqPrE2VNz6ja7Vw" class="title-bottom mobile">
+                <img src="./img/pages/main/typo_youtube.png" alt="">
+              </a>
             </div>
           </details>
           <details class="accordion">
@@ -216,95 +223,99 @@
   </div>
 
   <script>
-    const accordions = document.querySelectorAll('.accordion');
-    function accordionOpen(arr) {
-      arr.forEach((accordion) => {
-        const { top } = accordion.getBoundingClientRect();
-        const windowScrollTop = document.documentElement.scrollTop;
-        if(top < 100 && top > -100) {
-          if(!accordion.open) {
-            const {height, padding} = window.getComputedStyle(accordion.children[1])
-            accordion.children[1].style.height = 0;
-            accordion.children[1].style.padding = 0;
-            setTimeout(() => {
-              accordion.children[1].style.height = height;
-              accordion.children[1].style.padding = padding;
-            }, 10)
-            console.log(height, padding)
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const accordions = document.querySelectorAll('.accordion');
+      function accordionOpen(arr) {
+        arr.forEach((accordion) => {
+          const { top } = accordion.getBoundingClientRect();
+          const windowScrollTop = document.documentElement.scrollTop;
+          if(top < 100 && top > -100) {
+            if(!accordion.open) {
+              const {height, padding} = window.getComputedStyle(accordion.children[1])
+              accordion.children[1].style.height = 0;
+              accordion.children[1].style.padding = 0;
+              setTimeout(() => {
+                accordion.children[1].style.height = height;
+                accordion.children[1].style.padding = padding;
+              }, 10)
+              console.log(height, padding)
+            }
+            accordion.open = true;
           }
-          accordion.open = true;
+        })
+      }
+      
+      window.addEventListener('scroll', () => accordionOpen(accordions));
+  
+      
+      const swiperMain = new Swiper('.swiper-area.main', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+        },
+        speed: 500,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
         }
       })
-    }
-    
-    window.addEventListener('scroll', () => accordionOpen(accordions));
-
-    
-    const swiperMain = new Swiper('.swiper-area.main', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-      },
-      speed: 500,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-      }
-    })
-    
-    const swiperOnair = new Swiper('.onair .swiper-area', {
-      slidesPerView: 3,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-      },
-      speed: 500,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    })
-
-    const popup = document.querySelector('.popup-youtube')
-    const youtube = popup.querySelector('iframe')
-    swiperOnair.on('click', function(e) {
-      const imgSrc = this.clickedSlide.children[0].src
-      const youtubeID = imgSrc.split('/')[4];
       
-      youtube.src = `//www.youtube.com/embed/${youtubeID}`
-
-      popup.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = '14px';
-      
-    })
-    popup.addEventListener('click', (e) => {
-      popup.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      document.body.style.marginRight = '0';
-    })    
-
-    const bgOnair = document.querySelector('.bg-onair');
-    bgOnair.style.width = window.innerWidth
-    console.log(window.innerWidth, bgOnair.style.width)
-    const swiperStar = new Swiper('.audition .swiper-area', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-      },
-      speed: 500,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+      const swiperOnair = new Swiper('.onair .swiper-area', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+        },
+        speed: 500,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
+  
+      const popup = document.querySelector('.popup-youtube')
+      const youtube = popup.querySelector('iframe')
+      swiperOnair.on('click', function(e) {
+        const imgSrc = this.clickedSlide.children[0].src
+        const youtubeID = imgSrc.split('/')[4];
+        
+        youtube.src = `//www.youtube.com/embed/${youtubeID}`
+  
+        popup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        document.body.style.marginRight = '14px';
+        
+      })
+      popup.addEventListener('click', (e) => {
+        popup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        document.body.style.marginRight = '0';
+      })    
+  
+      const bgOnair = document.querySelector('.bg-onair');
+      bgOnair.style.width = window.innerWidth
+      console.log(window.innerWidth, bgOnair.style.width)
+  
+      const swiperStar = new Swiper('.audition .swiper-area', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+        },
+        speed: 500,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
     })
   </script>
 </body>

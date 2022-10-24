@@ -59,6 +59,7 @@
     </header>
     <main>
       <div id="content-container" class="trainer">
+        <p class="bar mobile"></p>
         <img src="./img/pages/trainer/type_title.png" alt="">
         <div id="vocal" class="trainer-container">
           <h4 class="title">
@@ -184,12 +185,21 @@
         <div class="popup-details">
           <div class="details-wrap">
             <img src="./img/pages/trainer/profile/yang-chang-hoon.jpg" alt="">
-            <div class="btn-prev">
+            <div class="btn-prev pc">
               <img src="./img/pages/trainer/btn_prev.png" alt="">
             </div>
-            <div class="btn-next">
+            <div class="btn-next pc">
               <img src="./img/pages/trainer/btn_next.png" alt="">
             </div>
+          </div>
+          <a href="javascript:void(0)" class="btn-close mobile">
+            <img src="./img/common/icon_close_menu.png" alt="">
+          </a>
+          <div class="btn-prev-mobile mobile">
+            <img src="./img/pages/trainer/btn_prev.png" alt="">
+          </div>
+          <div class="btn-next-mobile mobile">
+            <img src="./img/pages/trainer/btn_next.png" alt="">
           </div>
         </div>
       </div>
@@ -241,7 +251,12 @@
             trainer.addEventListener('click', () => {
               const trainerSrc = trainer.children[0].src.split('/');
               console.log(trainerSrc)
-              const src = `./img/pages/trainer/profile/${trainerSrc[7]}`;
+              let src;
+              if (window.innerWidth < 1024) {
+                src = `./img/pages/trainer/profile/mobile/${trainerSrc[7]}`
+              } else {
+                src = `./img/pages/trainer/profile/${trainerSrc[7]}`
+              }
               openPopup(src);
             })
           })
@@ -254,7 +269,9 @@
           })
 
           const prev = popupDetails.querySelector('.btn-prev');
+          const prevMobile = popupDetails.querySelector('.btn-prev-mobile');
           const next = popupDetails.querySelector('.btn-next');
+          const nextMobile = popupDetails.querySelector('.btn-next-mobile');
 
           // 프로필 사진 변경하는 버튼
           function profileNav(status) {
@@ -273,14 +290,20 @@
                 currentIndex = 0
               }
             }
-            currentSrc.src = `./img/pages/trainer/profile/${trainerArr[currentIndex]}.jpg`
+            if (window.innerWidth < 1024) {
+              currentSrc.src = `./img/pages/trainer/profile/mobile/${trainerArr[currentIndex]}.jpg`
+            } else {
+              currentSrc.src = `./img/pages/trainer/profile/${trainerArr[currentIndex]}.jpg`
+            }
           }
           if(popupDetails.style.display === 'flex') {
             
           }
           prev.addEventListener('keyup', (e) => console.log(e))
           prev.addEventListener('click', () => profileNav('prev'))
+          prevMobile.addEventListener('click', () => profileNav('prev'))
           next.addEventListener('click', () => profileNav('next'))
+          nextMobile.addEventListener('click', () => profileNav('next'))
         });
       </script>
     </main>

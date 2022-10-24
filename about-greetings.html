@@ -43,13 +43,13 @@
     </header>
     <main>
       <div id="content-container" class="greetings">
-        <div class="img-wrap inner bt center">
+        <div class="img-wrap inner bt center pc">
           <img src="./img/pages/about/greetings/img1_greetings.png" alt="" class="mt20">
         </div>
-        <div class="img-wrap inner center mt132">
+        <div class="img-wrap inner center mt132 pc">
           <img src="./img/pages/about/greetings/img2_part1.png" alt="">
         </div>
-        <div class="img-wrap part2">
+        <div class="img-wrap part2 pc">
           <div class="img-wrap inner">
             <img src="./img/pages/about/greetings/img3_strategy.png" alt="" class="title">
           </div>
@@ -60,16 +60,42 @@
             </div>
           </div>
         </div>
-        <div class="img-wrap">
+        <div class="img-wrap pc">
           <img src="./img/pages/about/greetings/img4_part3.png" alt="">
         </div>
-        <div class="img-wrap inner">
+        <div class="img-wrap inner pc">
           <img src="./img/pages/about/greetings/img5_part4.png" alt="">
         </div>
-        <div class="img-wrap inner">
+        <div class="img-wrap inner pc">
           <img src="./img/pages/about/greetings/img6_part5.png" alt="">
         </div>
+        <div class="img-wrap mobile">
+          <img src="./img/pages/about/greetings/img1_m_greetings.png" alt="" class="inner">
+          <img src="./img/pages/about/greetings/img2_m_part1.png" alt="" class="inner mt32">
+          <img src="./img/pages/about/greetings/img3_m_part2.png" alt="" class="mt20">
+          <img src="./img/pages/about/greetings/img4_m_part3.png" alt="">
+          <img src="./img/pages/about/greetings/img5_m_part4.png" alt="" class="mt48">
+          <img src="./img/pages/about/greetings/img6_m_part5.png" alt="" class="mt48">
+        </div>
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const expand = document.querySelector('.expand');
+          // const { height } = expand.getBoundingClientRect()
+          const {height, padding} = getComputedStyle(expand)
+          expand.style.height = 0;
+          expand.style.padding = 0;
+
+
+          document.addEventListener('scroll', () => {
+            if(document.documentElement.scrollTop > 1800) {
+              expand.style.height = height
+              expand.style.padding = padding
+            }
+            console.log(document.documentElement.scrollTop, height)
+          })
+        })
+      </script>
     </main>
     <footer id="footer">
       <div class="sns">

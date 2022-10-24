@@ -1,0 +1,22 @@
+body {
+  color: inherit;
+}
+
+@include desktop {
+  .farm-A-customize-board,
+  .scbd,
+  .farm-A-agree-wrap,
+  .farm-A-join-wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+}
+
+@include mobile {
+  .farm-A-customize-board,
+  .scbd,
+  .farm-A-agree-wrap,
+  .farm-A-join-wrap {
+    padding: 0 level(6);
+  }
+}

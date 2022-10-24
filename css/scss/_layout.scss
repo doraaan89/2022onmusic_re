@@ -1,6 +1,6 @@
 @include desktop {
   .mobile {
-    display: none;
+    display: none !important;
   }
   #header {
     position: relative;

@@ -490,6 +490,7 @@
         width: 50%;
         .item {
           display: flex;
+          justify-content: space-between;
           align-items: center;
           height: 104px;
           padding: 0 level(6);
